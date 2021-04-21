@@ -2,7 +2,7 @@ const db = require("../../data/db-config.js");
 
 function find() {
   return db("users")
-    .join("roles", "users.role_id", "roles.user_id")
+    .join("roles", "users.role_id", "roles.role_id")
     .select("user_id", "username", "role_name");
 
   /**
@@ -26,7 +26,7 @@ function find() {
 
 function findBy(filter) {
   return db("users")
-    .join("roles", "users.role_id", "roles.user_id")
+    .join("roles", "users.role_id", "roles.role_id")
     .select("user_id", "username", "password", "role_name")
     .where(filter);
   /**
@@ -46,7 +46,7 @@ function findBy(filter) {
 
 function findById(user_id) {
   return db("users")
-    .join("roles", "users.role_id", "roles.user_id")
+    .join("roles", "users.role_id", "roles.role_id")
     .select("user_id", "username", "role_name")
     .where("users.user_id", user_id)
     .first();
